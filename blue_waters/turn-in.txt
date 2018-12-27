@@ -1,0 +1,13 @@
+what to turn in
+
+1. 5-6 generated images for the GAN
+
+2. real_image.png, gradient_image, jittered_image
+
+3. max_class.png (one for each discriminator model)
+
+4. gradients at 2 different layers (for each discriminator model)
+
+5. accuracy of the two discriminators
+
+-

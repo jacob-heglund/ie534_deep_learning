@@ -1,0 +1,6 @@
+/.idea
+/.vscode
+data/
+/hw1
+resnet.ckpt
+MNISTdata.hdf5

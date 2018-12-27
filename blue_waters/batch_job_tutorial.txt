@@ -1,0 +1,76 @@
+0. This files gives a tutorial on how to run a batch job using a pbs file.  Batch jobs run in the background and cannot be interacted with.  Therefore, make sure your code saves any important data to disk!
+- I have included a file called 'test_job.py' that will run with using the "generate_pbs.py" in the repo.
+- The code saves an array of numbers to disk, so it is a nice example to try first.  
+- Use 'test_job.py' as an exercise to get a job working using the instructions below.
+
+1. Make a copy of "generate_pbs.py" from the project repo and put it in the same directory as the file you want to run (on your computer, we're not on Blue Waters yet!)
+
+2. Modify these fields in "generate_pbs.py":
+trainingFilename = 'test_job.py'
+walltime = '00:30:00'
+jobname ='my_training_job_name'
+netid = 'jheglun2'
+
+- note that walltime must be between 00:30:00 and 48:00:00 (30 minute minimum, 48 hour maximum)
+- if your code finishes running before your walltime is done, your session ends and your hours won't be wasted
+
+3. SSH into a Blue Waters login node using:
+ssh traXXX@bwbay.ncsa.illinois.edu
+Password: blah
+
+4. Copy over any files to Blue Waters so "generate_pbs.py" is in the same directory as the file you want to run
+- Use WinSCP if you have a cool operating system 
+- otherwise, use bash commands (cd, cp, scp, etc.) (see the interactive jobs tutorial)
+
+5. cd to the code directory, and run "generate_pbs.py" using this command:
+python generate_pbs.py
+
+6. Begin your job using this command:
+qsub run.pbs
+- if successful, you will see something like this 
+INFO: Job submitted to account: bauh
+job_id.bw
+
+7. Your job will now run in the background.  It may take a while for the code to start running.
+- If you want to check the status, use this command:
+qstat | grep traXXX
+- the possible statuses are:
+Q - in the queue (waiting to be run)
+R - running
+C - complete
+
+- the command "#PBS -m bea" is set in the PBS file so that Blue Waters will 
+email you at yourNetID@illinois.edu when your job begins and ends
+- you can remove this command by modifying "generate_pbs.py", but why would you?
+
+8. If you want to stop your job at any time run this command:
+qdel job_id.bw
+
+9. When completed, your code will output:
+my_training_job_name_0.9136712.bw.err - for any python errors that occur during code execution
+my_training_job_name_0.9136712.bw.out - for the job parameters
+
+- you will also get an email when the code is done running
+- the begin email looks like this
+BW Job ID: 9136796.bw 
+ Job Name: my_training_job_name_0 
+ Exec host list suppressed in email 
+ Begun execution
+
+- and the end email looks like this:
+BW Job ID: 9136796.bw 
+ Job Name: my_training_job_name_0 
+ Exec host list suppressed in email 
+ Execution terminated 
+ Exit_status=0
+resources_used.cput=00:00:00
+resources_used.vmem=0kb
+resources_used.walltime=00:00:09
+resources_used.mem=0kb
+resources_used.energy_used=0
+
+
+
+
+
+

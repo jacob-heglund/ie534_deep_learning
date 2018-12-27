@@ -1,0 +1,4 @@
+1. Run Training
+2. Run Testing, get the top 10, 5, and 1 accuracies by copying output of the terminal after running
+3. Get the 10 classes with highest and lowest performances from confusion matrix
+4. Get the 10 most confused classes (row of confusion matrix with largest off-diagonal elements)

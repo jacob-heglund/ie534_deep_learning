@@ -1,0 +1,71 @@
+0. Windows may not work for dealing with Blue Waters, so use the UIUC linux machines if necessary:
+ssh EWS_LOGIN@linux.ews.illinois.edu
+
+1. (if using Windows) Copy any files over to Blue Waters using WinSCP
+
+2. Log into a Blue Waters login node using
+- Don't run any programs here!
+ssh traXXX@bwbay.ncsa.illinois.edu
+Password: blah
+
+3. (if ssh-ing from Linux) Transfer any files or directories you need for running the code
+- look at the files in a folder using a remote ls command
+ssh EWS_LOGIN@linux.ews.illinois.edu ls bin/hw4
+- transfer a directory and all of its contents using
+scp -r EWS_LOGIN@linux-a2.ews.illinois.edu:/classes/hwX ~/scratch
+- remove directories using rm -r DIR_NAME
+- remove all directories in a directory using rm -R -- */
+
+3. There may be useful stuff here
+/projects/training/bauh
+/projects/eot/balq
+
+If there is, copy it back to my scratch folder using:
+cp -r DIR_NAME DIRECTORY_TO_BE_COPIED_TO
+cp FILENAME DIRECTORY_TO_BE_COPIED_TO
+
+4. With all files ready, start an interactive job
+qsub -I -l gres=ccm -l nodes=1:ppn=16:xk -l walltime=03:00:00
+- traXXX@h20login -> traXXX@nidXXXX, indicating you are on a compute node now 
+- walltime is the max time you have on the node. Default is 01:00:00 You can set it up to 48 hours.
+- you'll have to wait for your job to start.  This could take minutes or hours depending on how busy BW is.
+
+5. Login to the compute node and add modules that allow Python
+- these will get python 3.6 and pytorch 0.4
+module add ccm
+ccmlogin
+module load bwpy/2.0.0-pre1
+module load cudatoolkit
+
+- your traXXX@nidXXXX will change, indicating you're ready to run deep learning code on Blue Waters
+
+6. Check your version of python on Blue Waters
+- you have to specify python 3.6, otherwise pytorch may not run the correct version
+- To check the pytorch version, start python in your ssh terminal (on Blue Waters) by typing python3.6.
+- Once python 3.6 has started, do this:
+
+import torch
+print(torch.__version__)
+- you want to see 0.4.1.  If you do, exit() python and run your code!
+
+7. You can now run code on Blue Waters using
+python3.6 filename.py
+
+8. When done, type 'exit' (no quotes) in the Blue Waters terminal to end your connection with the compute node
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    

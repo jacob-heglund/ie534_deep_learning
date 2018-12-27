@@ -1,0 +1,46 @@
+Part 1 - single frame model
+-------
+Accuracies
+top1, top5, top10
+(0.772139,0.949511,0.974888)
+
+Classes
+highest performing classes: ['SumoWrestling' 'WritingOnBoard' 'MilitaryParade' 'SkyDiving' 'Skijet'
+ 'BasketballDunk' 'BabyCrawling' 'PlayingTabla' 'Billiards' 'Surfing']
+
+ lowest performing classes: ['JumpRope' 'FrontCrawl' 'BodyWeightSquats' 'HandstandWalking' 'YoYo'
+ 'WallPushups' 'HighJump' 'Nunchucks' 'ShavingBeard' 'JumpingJack']
+
+ Confused Classes
+ original class
+['ApplyEyeMakeup', 'HammerThrow', 'ShavingBeard', 'BalanceBeam', 'BandMarching', 'FrontCrawl', 'JumpRope', 'CricketShot', 'Hammering', 'PommelHorse']
+
+wrong class
+['ApplyLipstick', 'ThrowDiscus', 'BrushingTeeth', 'ParallelBars', 'MilitaryParade', 'BreastStroke', 'HulaHoop', 'CricketBowling', 'HeadMassage', 'ParallelBars']
+
+prob of wrong class
+[0.3181818127632141, 0.5111111402511597, 0.3720930218696594, 0.29032257199287415, 0.27906978130340576, 0.6756756901741028, 0.2631579041481018, 0.30612245202064514, 0.3030303120613098, 0.2571428716182709]
+
+Part 2 - sequence model
+-------
+Accuracies
+top1, top5, top10
+(0.355274,0.633888,0.767380)
+
+Classes
+highest performing classes: ['StillRings' 'CuttingInKitchen' 'BlowingCandles' 'TaiChi' 'HulaHoop'
+ 'ApplyEyeMakeup' 'JugglingBalls' 'WritingOnBoard' 'Bowling' 'Typing']
+
+lowest performing classes: ['YoYo' 'FrontCrawl' 'Skijet' 'FloorGymnastics' 'Skiing' 'Diving'
+ 'Surfing' 'CricketShot' 'Shotput' 'ShavingBeard']
+
+Confused Classes
+original class
+['CricketShot', 'ApplyLipstick', 'Rafting', 'HorseRace', 'BalanceBeam', 'SoccerPenalty', 'YoYo', 'Kayaking', 'Rowing', 'CleanAndJerk']
+
+wrong class
+['CricketBowling', 'ApplyEyeMakeup', 'BabyCrawling', 'Bowling', 'Bowling', 'Bowling', 'JugglingBalls', 'BabyCrawling', 'Bowling', 'JavelinThrow']
+
+prob of wrong class
+[0.5306122303009033, 0.5625, 0.8928571343421936, 0.6285714507102966, 0.5806451439857483, 0.6585366129875183, 0.5833333134651184, 0.8055555820465088, 0.6388888955116272, 0.5454545617103577]
+

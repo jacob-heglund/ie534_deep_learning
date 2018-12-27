@@ -1,0 +1,6 @@
+For the test code in part2, we load a video with shape of [nFrame, 3, 224, 224] and then tranform it into [all_batch, 3, 16, 224, 224].
+
+ 
+ So we only need to modify the data load procedure, model, and the shape[0] of the prediction vector(make it to all_batch)  in part 1's test code right?
+
+ 
